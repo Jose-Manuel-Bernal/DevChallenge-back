@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ServiceImp implements MainServices{
+public class MainServiceImp implements MainServices{
 
     @Autowired
     private CategoryRepository categoryRepository;
@@ -29,19 +29,6 @@ public class ServiceImp implements MainServices{
         return categoryRepository.save(category);
     }
 
-    @Override
-    public Note createNote(Note note) {
-        Optional<Category> category = categoryRepository.findById(note.getIdOfCategory());
-        if (category.isPresent()) {
-            noteRepository.save(note);
-        }
-        return note;
-    }
-
-    @Override
-    public void deleteNote(Note note) {
-        noteRepository.deleteById(note.getId());
-    }
 
     @Override
     public void deleteCategory(Category category) {
@@ -66,5 +53,4 @@ public class ServiceImp implements MainServices{
     private List<Note> getNotes(){
         return noteRepository.findAll();
     }
-
 }
