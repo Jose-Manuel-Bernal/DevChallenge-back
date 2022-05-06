@@ -30,4 +30,10 @@ public class Controller {
         return noteService.createNote(note);
     }
 
+    @PutMapping("update/note")
+    public Note updateNote(@RequestBody Note note) { return noteService.updateNote(note);}
+
+    @DeleteMapping("delete/note/{id}")
+    public void deleteNote(@PathVariable Long id) {noteService.deleteNote(id);}
+
 }

@@ -29,11 +29,11 @@ public class NoteServiceImp implements NoteService{
 
     @Override
     public Note updateNote(Note note) {
-        return null;
+        return noteRepository.save(note);
     }
 
     @Override
-    public void deleteNote(Note note) {
-        noteRepository.deleteById(note.getId());
+    public void deleteNote(Long id) {
+        noteRepository.deleteById(id);
     }
 }
