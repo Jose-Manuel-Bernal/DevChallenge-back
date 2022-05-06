@@ -36,4 +36,7 @@ public class Controller {
     @DeleteMapping("delete/note/{id}")
     public void deleteNote(@PathVariable Long id) {noteService.deleteNote(id);}
 
+    @DeleteMapping("delete/category/{id}")
+    public void deleteCategory(@PathVariable Long id) {mainService.deleteCategory(id);}
+
 }

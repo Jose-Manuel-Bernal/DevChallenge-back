@@ -22,7 +22,9 @@ public class NoteServiceImp implements NoteService{
     public Note createNote(Note note) {
         Optional<Category> category = categoryRepository.findById(note.getIdOfCategory());
         if (category.isPresent()) {
+            category.get().addNote(note);
             noteRepository.save(note);
+            categoryRepository.save(category.get());
         }
         return note;
     }

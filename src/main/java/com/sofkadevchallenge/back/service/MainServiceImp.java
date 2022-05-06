@@ -31,12 +31,12 @@ public class MainServiceImp implements MainServices{
 
 
     @Override
-    public void deleteCategory(Category category) {
-        Category categoryToDelete = categoryRepository.findById(category.getId()).get();
-        if (!categoryToDelete.getNotes().isEmpty()) {
-            categoryToDelete.getNotes().forEach(note -> noteRepository.deleteById(note.getId()));
+    public void deleteCategory(Long id) {
+        Optional<Category> categoryToDelete = categoryRepository.findById(id);
+        if (!categoryToDelete.get().getNotes().isEmpty()) {
+            categoryToDelete.get().getNotes().forEach(note -> noteRepository.deleteById(note.getId()));
         }
-        categoryRepository.deleteById(category.getId());
+        categoryRepository.deleteById(id);
     }
 
     @Override

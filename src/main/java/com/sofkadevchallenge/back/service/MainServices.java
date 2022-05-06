@@ -13,7 +13,7 @@ public interface MainServices {
 
     Category createCategory(Category category);
 
-    void deleteCategory(Category category);
+    void deleteCategory(Long id);
 
     CategoryDTO getAllElements();
 }
