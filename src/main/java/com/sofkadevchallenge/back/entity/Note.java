@@ -15,7 +15,7 @@ public class Note {
 
     private String message;
 
-    private boolean done;
+    private boolean done = false;
 
     private Long idOfCategory;
 }
