@@ -13,10 +13,6 @@ public interface MainServices {
 
     Category createCategory(Category category);
 
-    Note createNote(Note note);
-
-    void deleteNote(Note note);
-
     void deleteCategory(Category category);
 
     CategoryDTO getAllElements();
