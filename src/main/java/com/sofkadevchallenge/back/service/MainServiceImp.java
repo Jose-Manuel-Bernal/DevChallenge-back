@@ -35,6 +35,7 @@ public class MainServiceImp implements MainServices{
         Optional<Category> categoryToDelete = categoryRepository.findById(id);
         if (!categoryToDelete.get().getNotes().isEmpty()) {
             categoryToDelete.get().getNotes().forEach(note -> noteRepository.deleteById(note.getId()));
+
         }
         categoryRepository.deleteById(id);
     }
