@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class CategoryServiceImp implements CategoryService{
+public class ServiceImp implements MainServices{
 
     @Autowired
     private CategoryRepository categoryRepository;
