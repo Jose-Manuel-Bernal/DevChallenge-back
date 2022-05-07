@@ -15,6 +15,6 @@ public class CategoryDTO {
 
     private List<Category> categoryList = new ArrayList<>();
 
-    private List<Note> noteList = new ArrayList<>();
+    //private List<Note> noteList = new ArrayList<>();
 
 }

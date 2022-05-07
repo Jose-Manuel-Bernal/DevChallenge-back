@@ -43,7 +43,7 @@ public class MainServiceImp implements MainServices{
     @Override
     public CategoryDTO getAllElements() {
         categoryDTO.setCategoryList(getCategories());
-        categoryDTO.setNoteList(getNotes());
+        //categoryDTO.setNoteList(getNotes());
         return categoryDTO;
     }
 
@@ -51,7 +51,5 @@ public class MainServiceImp implements MainServices{
         return categoryRepository.findAll();
     }
 
-    private List<Note> getNotes(){
-        return noteRepository.findAll();
-    }
+    //private List<Note> getNotes(){return noteRepository.findAll();}
 }
