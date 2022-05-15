@@ -2,6 +2,7 @@ package com.sofkadevchallenge.back.DTO;
 
 import com.sofkadevchallenge.back.entity.Category;
 import com.sofkadevchallenge.back.entity.Note;
+import com.sofkadevchallenge.back.entity.Tag;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
@@ -17,10 +18,16 @@ public class Mapper {
         note.setDone(noteDto.isDone());
         note.setMessage(noteDto.getMessage());
         note.setId(noteDto.getId());
+        List<Tag> tags = new ArrayList<>();
+        if (noteDto.getTags().size() > 0) {
+            noteDto.getTags().forEach(tagDTO -> tags.add(this.fromTagDtoToEntity(tagDTO)));
+        }
         return note;
     }
 
     public NoteDTO fromEntityToNoteDto(Note note){
+        List<TagDTO> tagDTOS = new ArrayList<>();
+        note.getTags().forEach(tag -> tagDTOS.add(this.fromEntityToTagDto(tag)));
         NoteDTO noteDto = new NoteDTO();
         noteDto.setIdOfCategory(note.getIdOfCategory());
         noteDto.setDone(note.isDone());
@@ -51,5 +58,19 @@ public class Mapper {
         categoryDto.setNotes(notes);
         categoryDto.setTag(category.getTag());
         return categoryDto;
+    }
+
+    public Tag fromTagDtoToEntity(TagDTO tagDTO){
+        Tag tag = new Tag();
+        tag.setId(tagDTO.getId());
+        tag.setTag(tagDTO.getTag());
+        return tag;
+    }
+
+    public TagDTO fromEntityToTagDto(Tag tag){
+        TagDTO tagDTO = new TagDTO();
+        tagDTO.setId(tag.getId());
+        tagDTO.setTag(tag.getTag());
+        return tagDTO;
     }
 }
