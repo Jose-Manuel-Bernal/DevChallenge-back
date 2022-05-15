@@ -18,4 +18,5 @@ public class Note {
     private boolean done = false;
 
     private Long idOfCategory;
+
 }

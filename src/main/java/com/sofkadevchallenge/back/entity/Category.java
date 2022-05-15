@@ -17,6 +17,8 @@ public class Category {
 
     private String title;
 
+    private String tag;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Note> notes = new ArrayList<>();
 

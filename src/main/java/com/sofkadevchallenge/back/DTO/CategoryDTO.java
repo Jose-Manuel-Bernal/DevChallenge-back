@@ -12,9 +12,8 @@ import java.util.List;
 @Component
 @Data
 public class CategoryDTO {
-
-    private List<Category> categoryList = new ArrayList<>();
-
-    //private List<Note> noteList = new ArrayList<>();
-
+    private Long id;
+    private String title;
+    private String tag;
+    private List<NoteDTO> notes = new ArrayList<>();
 }
